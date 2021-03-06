@@ -122,7 +122,7 @@ if sys.platform.startswith("linux"):
             try:
                 k, v = line.split(b"=")
             except ValueError:
-                pass
+                continue
             if k == b"HID_UNIQ":
                 desc.serial_number = v.decode("utf8")
 
