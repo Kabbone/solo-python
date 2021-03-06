@@ -119,7 +119,10 @@ if sys.platform.startswith("linux"):
             line = line.strip()
             if not line:
                 continue
-            k, v = line.split(b"=")
+            try:
+                k, v = line.split(b"=")
+            except ValueError:
+                pass
             if k == b"HID_UNIQ":
                 desc.serial_number = v.decode("utf8")
 
